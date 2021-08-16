@@ -1,0 +1,14 @@
+<h1>TODO LIST</h1>
+<button name="button"><a href="/todo_list/create">Create new list</a></button>
+{% if todolists %}
+
+    <ul>
+        {% for todolist in todolists %}
+        <li><a href="/todo_list/{{todolist.id}}">{{todolist.list_name}}</a></li>
+        <button><span><a href="/todo_list/deleteL/{{todolist.id}}" style = 'text-decoration: none;'>Delete</a></span></button>
+        <button><span><a href="{% url 'todo:list_update' todolist.id %}" style = 'text-decoration: none;'>Update list</a></span></button>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+

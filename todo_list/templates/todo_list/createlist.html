@@ -1,0 +1,16 @@
+<h1>TODO LIST</h1>
+<form action="{% url 'todo:list_create' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h1>Create New List</h1>
+        <label>List name:</label><br>
+        <input type="text" name="name" id="name" required><br><br>
+        {% comment %} <label>Title:</label><br>
+        <input type="text" name="task" id="task" required><br><br>
+        <label>Due date:</label><br>
+        <input type="date" name="due" id="due" required><br><br> {% endcomment %}
+
+        <input type="submit">
+    </fieldset>
+
+</form>

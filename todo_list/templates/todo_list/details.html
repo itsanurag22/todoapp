@@ -1,0 +1,35 @@
+<h1>{{todolist.list_name}}</h1>
+<button><span><a href="/todo_list/addI/{{todolist.id}}" style = 'text-decoration: none;'>Add item</a></span></button>
+<h3>Tasks pending</h3>
+<ul>
+    {% for item in items_list %}
+    {%if not item.checked %}
+        <li>
+            {{item.title}}: {{item.due_date}}, {{item.checked}}
+            <br>
+            <button><span><a href="/todo_list/deleteI/{{item.id}}" style = 'text-decoration: none;'>Delete</a></span></button>
+            <button><span><a href="/todo_list/markI/{{item.id}}" style = 'text-decoration: none;'>Mark as done</a></span></button>
+            <button><span><a href="/todo_list/updateI/{{item.id}}" style = 'text-decoration: none;'>Edit</a></span></button>
+            
+        </li>
+    {%endif%}
+    
+    {% comment %} <button><span><a href="{% url 'todo:list_update' todolist.id %}">Update list</a></span></button> {% endcomment %}
+    {% endfor %}
+</ul>
+<hr>
+<h3>Tasks done</h3>
+<ul>
+    {% for item in items_list %}
+    {%if item.checked %}
+        <li>
+            {{item.title}}: {{item.due_date}}, {{item.checked}}
+            <br>
+            <button><span><a href="/todo_list/deleteI/{{item.id}}" style = 'text-decoration: none;'>Delete</a></span></button>
+        </li>
+    {%endif%}
+    
+    {% comment %} <button><span><a href="{% url 'todo:list_update' todolist.id %}">Update list</a></span></button> {% endcomment %}
+    {% endfor %}
+</ul>
+

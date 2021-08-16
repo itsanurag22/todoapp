@@ -1,0 +1,23 @@
+<h1>TODO LIST</h1>
+<form  method="post">
+    {% csrf_token %}
+    {{item_info.as_p}}
+    <input type="submit">
+</form>  
+{% comment %} <h1>TODO LIST</h1>
+<form  action="{% url 'todo:item_add' todolist.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h1>Add item</h1>
+        <label>Title:</label><br>
+        <input type="text" name="task" id="task" required><br><br>
+        <label>Checked:</label>
+        <input type="checkbox" name="check" id="check" value="1"><br><br> 
+
+        <label>Due date:</label><br>
+        <input type="datetime-local" name="due" id="due" required><br><br> 
+
+        <input type="submit">
+    </fieldset>
+
+</form> {% endcomment %}
